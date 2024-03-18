@@ -24,11 +24,16 @@ jobs:
           pip install flask 
           pip install Flask-Limiter
 
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2    
+
       - name: export env variables #export required enviroment variables
         run: |
-          export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
-          export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          export AWS_DEFAULT_REGION=${{ secrets.AWS_DEFAULT_REGION }}
           export BUCKET_NAME='my-unique-yahoo-bucket-name-4klma1zs'
           export KMS_KEY_ID='577e9ffc-c830-483a-bf45-7c8ae1d60f1f'
           echo $BUCKET_NAME
