@@ -1,8 +1,8 @@
 name: s3_object_uploader
 
 on:
-  schedule:
-    - cron: '*/10 * * * *' # Scheduled to run every 10 minutes
+  push:
+    branches: [ "main" ]
 
 jobs:
   build:
