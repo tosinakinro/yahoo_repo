@@ -31,6 +31,7 @@ jobs:
           export AWS_DEFAULT_REGION=${{ secrets.AWS_DEFAULT_REGION }}
           export BUCKET_NAME=${{ secrets.BUCKET_NAME }}
           export KMS_KEY_ID=${{ secrets.KMS_KEY_ID }}
+          echo $BUCKET_NAME
           
 
       - name: execute py script #execute python script
