@@ -19,7 +19,7 @@ resource "aws_s3_bucket_versioning" "my_bucket_versioning" {
 
 resource "aws_kms_key" "my_key" {
   description             = "KMS key for S3 encryption"
-  deletion_window_in_days = 7
+  deletion_window_in_days = 14
 }
 
 
