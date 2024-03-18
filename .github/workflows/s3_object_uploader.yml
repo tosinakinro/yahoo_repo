@@ -2,7 +2,7 @@ name: s3_object_uploader
 
 on:
   schedule:
-    - cron: '/10 * * * *' # Every 10 minutes
+    - cron: '*/10 * * * *' # Every 10 minutes
 
 jobs:
   build:
