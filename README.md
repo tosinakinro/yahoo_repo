@@ -1,11 +1,23 @@
 # Yahoo_Assessment
 This repository contains a combination of terraform code to create the required infrastructure and some python scripts to automate and execute the task requirements of this take home assessment.
 
+![img.png](architecture.png)
+
+
+## Description of Repo Folders/Structure
 Find below the directory tree of this repository:
 
 ![img_2.png](directory_tree.png)
 
-## Description of Repo Folders/Structure
+
+.github: this directory is used to configure a github actions worflow to further automate the process.
+* s3_object_uploader: workflow to run the python automation every 10 minutes.
+
+Scripts: Contains python scripts used to upload the the object uploads into the s3 bucket.
+* object_uploader.py: python script with the main automation required for this assessment. It automates the process of uploading a time stamped object to an s3 bucket.
+* http_endpoint.py: python script to create an http endpoint using the flask module, shows the most recent upload to the s3 bucket and limits the rates for 210 requests per ip every 10 minutes.
+* rate_limiter_test.py: a simple python script used to test the configuration for the rate limiter configured.
+
 Terraform_Files Directory: contains the terraform files required to provision the infrastructure for this assessment.
 * backend.tf: backend configuration to store the statefile safely within an s3 bucket and access it remotely.
 * main.tf: main blocks of code to provision the required resources
@@ -14,13 +26,6 @@ Terraform_Files Directory: contains the terraform files required to provision th
 * terraform.tfvars: used to provide the values to the variables defined in the variables.tf file
 * variables.tf: used to define variables used to pass values from outside the configuration
 
-Scripts: Contains python scripts used to upload the the object uploads into the s3 bucket.
-* object_uploader.py: python script with the main automation required for this assessment. It automates the process of uploading a time stamped object to an s3 bucket.
-* http_endpoint.py: python script to create an http endpoint using the flask module, shows the most recent upload to the s3 bucket and limits the rates for 210 requests per ip every 10 minutes.
-* rate_limiter_test.py: a simple python script used to test the configuration for the rate limiter configured.
-
-.github: this directory is used to configure a github actions worflow to further automate the process.
-* s3_object_uploader: workflow to run the python automation every 10 minutes.
 
 
 ## Deployment Instructions
