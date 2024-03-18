@@ -1,0 +1,36 @@
+name: s3_object_uploader
+
+on:
+  schedule:
+    - cron: '*/10 * * * *' # Scheduled to run every 10 minutes
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content into the runner
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' # install the python version needed
+
+      - name: install python packages #install the required python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install boto3
+          pip install pytz
+          chmod +x object_uploader.py
+
+      - name: export env variables #export required enviroment variables
+        run: |
+          export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
+          export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          export AWS_DEFAULT_REGION=${{ secrets.AWS_DEFAULT_REGION }}
+          export BUCKET_NAME=${{ secrets.BUCKET_NAME }}
+          export KMS_KEY_ID=${{ secrets.KMS_KEY_ID }}
+          
+
+      - name: execute py script #execute python script
+        run: python3 object_uploader.py
