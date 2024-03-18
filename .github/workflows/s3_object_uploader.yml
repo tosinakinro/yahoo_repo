@@ -32,6 +32,7 @@ jobs:
           export BUCKET_NAME=${{ secrets.BUCKET_NAME }}
           export KMS_KEY_ID=${{ secrets.KMS_KEY_ID }}
           echo $BUCKET_NAME
+          echo $KMS_KEY_ID
           
 
       - name: execute py script #execute python script
