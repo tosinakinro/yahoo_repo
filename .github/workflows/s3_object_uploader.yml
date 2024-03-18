@@ -21,7 +21,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install boto3
           pip install pytz
-          chmod +x object_uploader.py
 
       - name: export env variables #export required enviroment variables
         run: |
