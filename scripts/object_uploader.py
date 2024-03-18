@@ -4,7 +4,7 @@ import boto3
 import pytz
 
 s3_client = boto3.client('s3')
-kms_key_id = os.getenv('KMS_KEY_ID')
+kms_key_id = '577e9ffc-c830-483a-bf45-7c8ae1d60f1f'
 bucket_name = 'my-unique-yahoo-bucket-name-4klma1zs'
 
 def upload_timestamp():
