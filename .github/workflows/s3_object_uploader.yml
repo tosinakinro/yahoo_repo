@@ -34,4 +34,6 @@ jobs:
           
 
       - name: execute py script #execute python script
-        run: python3 scripts/object_uploader.py
+        run: |
+          python -c 'import object_uploader; object_uploader.upload_timestamp()'
+          python3 scripts/object_uploader.py
