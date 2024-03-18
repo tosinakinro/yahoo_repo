@@ -13,7 +13,7 @@ limiter.init_app(app)
 
 s3_client = boto3.client('s3')
 kms_key_id = os.getenv('KMS_KEY_ID')
-bucket_name = os.getenv('BUCKET_NAME')
+bucket_name = 'my-unique-yahoo-bucket-name-4klma1zs'
 
 def upload_timestamp():
     s3_client = boto3.client('s3')
