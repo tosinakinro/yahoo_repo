@@ -1,4 +1,4 @@
-name: Terraform
+name: aws_infra_provisioning
 on:
   push:
     branches:
