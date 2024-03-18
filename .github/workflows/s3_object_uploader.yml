@@ -32,4 +32,4 @@ jobs:
           
 
       - name: execute py script #execute python script
-        run: python3 object_uploader.py
+        run: python3 scripts/object_uploader.py
