@@ -21,3 +21,4 @@ jobs:
         cd terraform_files
         terraform init
         terraform plan
+        #terraforom apply --auto-approve
